@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+// import Output from "./output";
 
-class Output extends Component {
-  render() {
-    return (
-      <div className='output'>
-        <ul className='list-group'>
-          <li className='list-group-item'>1</li>
-          <li className='list-group-item'>2</li>
-          <li className='list-group-item'>3</li>
-          <li className='list-group-item'>4</li>
-        </ul>
-      </div>
-    );
-  }
-}
+// class Output extends Component {
+//   render() {
+//     return (
+//       <div className='output'>
+//         <ul className='list-group'>
+//           <li className='list-group-item'>1</li>
+//           <li className='list-group-item'>2</li>
+//           <li className='list-group-item'>3</li>
+//           <li className='list-group-item'>4</li>
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
 
-export default Output;
+// export default Output;
