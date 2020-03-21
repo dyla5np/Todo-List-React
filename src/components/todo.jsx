@@ -25,12 +25,10 @@ class Todo extends Component {
   };
 
   handleDelete = task => {
-    console.log(task);
-    const newtaskList = this.state.taskList.splice(task, 1);
+    const taskList = this.state.taskList.filter(t => t !== task);
     this.setState({
-      taskList: newtaskList
+      taskList
     });
-    console.log(task);
   };
 
   render() {
@@ -62,6 +60,7 @@ class Todo extends Component {
                 {task}
                 <div className='input-group-prepend'>
                   <button
+                    type='button'
                     className='btn btn-danger'
                     onClick={() => this.handleDelete(task)}>
                     Done
