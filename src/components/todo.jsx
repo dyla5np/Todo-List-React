@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import "./todo.css";
 
 class Todo extends Component {
-  state = {
-    task: "",
-    taskList: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      task: "",
+      taskList: []
+    };
+  }
 
   handleAdd = e => {
     e.preventDefault();
@@ -19,6 +22,15 @@ class Todo extends Component {
     this.setState({
       task: e.target.value
     });
+  };
+
+  handleDelete = task => {
+    console.log(task);
+    const newtaskList = this.state.taskList.splice(task, 1);
+    this.setState({
+      taskList: newtaskList
+    });
+    console.log(task);
   };
 
   render() {
@@ -38,7 +50,7 @@ class Todo extends Component {
         </div>
         <div className='output' id='output'>
           <ul className='list-group'>
-            {this.state.taskList.map((item, index) => (
+            {this.state.taskList.map((task, index) => (
               <li
                 className='list-group-item'
                 key={index}
@@ -47,10 +59,13 @@ class Todo extends Component {
                   justifyContent: "space-between",
                   alignContent: "center"
                 }}>
-                {item}
+                {task}
                 <div className='input-group-prepend'>
-                  <button className='btn btn-success mr-md-1'>Done</button>
-                  <button className='btn btn-danger'>Delete</button>
+                  <button
+                    className='btn btn-danger'
+                    onClick={() => this.handleDelete(task)}>
+                    Done
+                  </button>
                 </div>
               </li>
             ))}
